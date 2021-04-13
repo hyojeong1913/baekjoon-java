@@ -43,8 +43,8 @@ public class Main {
     /**
      * 함수 수행
      * 
-     * @param deque
-     * @param cmdStr
+     * @param deque 배열 원소를 넣은 deque
+     * @param cmdStr 수행해야할 함수
      * @return
      */
     static String ac(Deque<Integer> deque, String cmdStr) {
@@ -66,9 +66,9 @@ public class Main {
 
                 // 뒤집어야하는 경우
                 if (doReverse) {
-                    deque.removeLast();
+                    deque.removeLast(); // 마지막 수 삭제
                 } else {
-                    deque.removeFirst();
+                    deque.removeFirst(); // 처음 수 삭제
                 }
             } else {
 
@@ -76,19 +76,23 @@ public class Main {
         }
 
         while (!deque.isEmpty()) {
+            // 뒤집어야하는 경우
             if (doReverse) {
-                sb.append(deque.removeLast());
+                sb.append(deque.removeLast()); // 마지막 수 삭제
             } else {
-                sb.append(deque.removeFirst());
+                sb.append(deque.removeFirst()); // 처음 수 삭제
             }
 
+            // 출력할 때 구분자(,)를 넣기 위해 아직 값이 남아있는 경우 , 추가
             if (deque.size() != 0) {
                 sb.append(",");
             }
         }
 
+        // 마지막 출력 결과내용에 ] 추가
         sb.append("]");
 
+        // 출력 결과물 리턴
         return sb.toString();
     }
 }
